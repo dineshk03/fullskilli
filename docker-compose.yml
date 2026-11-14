@@ -1,0 +1,48 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: lms-backend
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env
+    environment:
+      NODE_ENV: production
+      PORT: 5001
+      MONGODB_URL: ${MONGODB_URL:?Set MONGODB_URL in deploy.env}
+      SEED_DATABASE: "false"
+    volumes:
+      - backend-uploads:/app/uploads
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_REACT_APP_BASE_URL: /api/v1
+        VITE_GOOGLE_CLIENT_ID: ${VITE_GOOGLE_CLIENT_ID:-}
+        VITE_FACEBOOK_APP_ID: ${VITE_FACEBOOK_APP_ID:-}
+        VITE_LINKEDIN_CLIENT_ID: ${VITE_LINKEDIN_CLIENT_ID:-}
+        VITE_LARAVEL_BASE_URL: ${VITE_LARAVEL_BASE_URL:-}
+        VITE_PLAN_API_BASE_URL: ${VITE_PLAN_API_BASE_URL:-}
+        VITE_PHP_SITE_URL: ${VITE_PHP_SITE_URL:-}
+    container_name: lms-frontend
+    ports:
+      - "127.0.0.1:8080:80"
+    restart: unless-stopped
+    depends_on:
+      - backend
+
+  mongo:
+    image: mongo:6.0
+    profiles:
+      - local-db
+    container_name: lms-mongo
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  backend-uploads:
+  mongo-data:

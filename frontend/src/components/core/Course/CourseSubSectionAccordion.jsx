@@ -1,0 +1,22 @@
+import PropTypes from "prop-types";
+import { HiOutlineVideoCamera } from "react-icons/hi";
+function CourseSubSectionAccordion({
+  subSec
+}) {
+  return <div data-course-component>
+      <div className="flex justify-between py-2">
+        <div className={`flex items-center gap-2`}>
+          <span>
+            <HiOutlineVideoCamera />
+          </span>
+          <p>{subSec?.title}</p>
+        </div>
+      </div>
+    </div>;
+}
+export default CourseSubSectionAccordion;
+CourseSubSectionAccordion.propTypes = {
+  "subSec": PropTypes.shape({
+    "title": PropTypes.node
+  })
+};

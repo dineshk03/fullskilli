@@ -1,0 +1,46 @@
+{
+  "mockedIntegrations": true,
+  "issuedInTestOnly": 3,
+  "desktopAndMobile": true,
+  "highResolutionBulkPages": 3,
+  "ramnadHighResolutionPages": 3,
+  "bulkNamePositions": [
+    {
+      "underline": 338,
+      "centerOffset": 0
+    },
+    {
+      "underline": 338,
+      "centerOffset": 0
+    },
+    {
+      "underline": 338,
+      "centerOffset": 0.00048828125
+    }
+  ],
+  "qrDecodedUrl": "http://127.0.0.1:4173/verify-certificate/BA-26NEW0000",
+  "verificationPageChecked": true,
+  "longContentAlignmentChecked": true,
+  "downloadedPdfImageCheck": {
+    "counts": [
+      16768,
+      16770,
+      3195,
+      3248
+    ],
+    "width": 2000,
+    "height": 1400,
+    "qrDecodedUrl": "http://127.0.0.1:4173/verify-certificate/BA-26LONG01"
+  },
+  "pdfs": [
+    {
+      "file": "latest-batch.pdf",
+      "bytes": 833635
+    },
+    {
+      "file": "single-certificate.pdf",
+      "bytes": 279366
+    }
+  ],
+  "errors": []
+}

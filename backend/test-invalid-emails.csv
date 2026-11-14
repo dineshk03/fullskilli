@@ -1,0 +1,6 @@
+firstName,lastName,email,accountType,contactNumber
+TestInvalid,User1,test@gmial.com,Student,1234567890
+TestInvalid,User2,test@yahooo.com,Student,1234567891
+TestInvalid,User3,notanemail,Student,1234567892
+TestInvalid,User4,test@fake12345nonexistent.com,Student,1234567893
+TestValid,User5,testvalid@gmail.com,Student,1234567894
